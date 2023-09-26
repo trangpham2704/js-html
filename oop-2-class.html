@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Product {
+        name
+        price
+        quantity
+        category
+
+        constructor(name, price, quantity, category) {
+            this.name = name
+            this.price = price
+            this.quantity = quantity
+            this.category = category
+        }
+    }
+
+    class Category {
+        name
+        description
+
+        constructor(name, description) {
+            this.name = name
+            this.description = description
+        }
+    }
+
+    let category1 = new Category("Drink", "khá ngon")
+    let category2 = new Category("Food", "khá đắt")
+    let cocacola = new Product("coca", 10000, 100, category1)
+    let pepsi = new Product("pepsi", 7000, 150, category1)
+    let garan = new Product("garan", 50000, 10, category2)
+</script>
+</html>
