@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // xây dựng lớp
+    class Temperature {
+        doC
+
+        constructor(doC) {
+            this.doC = doC
+        }
+
+        getKenvin() {
+            return this.doC + 273
+        }
+
+        getFahrenheit() {
+            return this.doC * (9/5) + 32
+        }
+    }
+
+    let doC
+    do {
+        doC = +prompt("Input temperature: ")
+        if (doC > -273) {
+            let temp = new Temperature(25)
+            document.write("Độ K là: " + temp.getKenvin() + "; độ F là: "+ temp.getFahrenheit())
+        } else {
+            alert("Nhiệt độ không phù hợp!")
+        }
+    } while(doC < -273)
+    </script>
+</html>
