@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="500px" height="400px" id="canvas" style="border: 1px solid;"></canvas>
+    <button onclick="display()">Display</button>
+    <button onclick="calculator()">Calculator</button>
+    <button onclick="change()">Change</button>
+    <button onclick="create()">Create</button>
+    <button onclick="changeColor()">ChangeColor</button>
+    <button onclick="changeToSquare()">ChangeSquare</button>
+    <h2 id="result"></h2>
+</body>
+<script>
+    // xây dựng lớp Rectangle
+    class Rectangle {
+        width
+        height
+
+        constructor(width, height) {
+            this.width = width
+            this.height = height
+        }
+
+        getArea() {
+            return this.width * this.height
+        }
+
+        getPerimeter() {
+            return (this.width + this.height) * 2
+        }
+
+        drawRect(ctx) {
+            // tham số ctx sẽ đại diện cho canvas truyền vào phương thức
+            ctx.fillRect(100, 100, this.width, this.height)
+        }
+    }
+
+    // khai báo 1 đối tượng Rectangle
+    let rect
+
+    function display() {
+        let ctx = document.getElementById("canvas").getContext("2d")
+        ctx.clearRect(0, 0, 500, 400)
+        rect.drawRect(ctx)
+    }
+
+    function calculator() {
+        let area = rect.getArea()
+        let peri = rect.getPerimeter()
+        let result = "Diện tích HCN là: " + area + "m2; chu vi HCN là: " + peri + "m" 
+        document.getElementById("result").innerHTML = result
+    }
+
+    function change() {
+        let width = +prompt("Input new width: ")
+        let height = +prompt("Input new height: ")
+        rect.width = width
+        rect.height = height
+    }
+
+    function changeColor() {
+        let ctx = document.getElementById("canvas").getContext("2d")
+        ctx.clearRect(0, 0, 500, 400)
+        ctx.fillStyle = prompt("Input color you want: ")
+        rect.drawRect(ctx)
+    }
+
+    function create() {
+        let width = +prompt("Input width: ")
+        let height = +prompt("Input height: ")
+        rect = new Rectangle(width, height)
+    }
+
+    function changeToSquare() {
+        let ctx = document.getElementById("canvas").getContext("2d")
+        ctx.clearRect(0, 0, 500, 400)
+        rect.width = rect.height
+        rect.drawRect(ctx)
+    }
+</script>
+</html>
